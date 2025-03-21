@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #ffdde1, #ee9ca7);
+    overflow: hidden;
+    font-family: 'Comic Sans MS', cursive;
+    text-align: center;
+    color: rgb(134, 62, 62);
+    padding: 20px;
+    position: relative;
+}
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: floatHearts 8s linear infinite;
+}
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+}
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+.heart::after {
+    left: 10px;
+    top: 0;
+}
+@keyframes floatHearts {
+    0% {
+        transform: translateY(100vh) scale(1) rotate(-45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) scale(0.5) rotate(-45deg);
+        opacity: 0;
+    }
+}
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.photo-container {
+    width: 180px;
+}
+.photo-container img {
+    width: 100%;
+    max-width: 180px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.message-container {
+    max-width: 450px;
+    width: 90%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-in-out;
+}
+h1 {
+    font-size: 1.5rem;
+}
+p {
+    font-size: 0.85rem;
+}
+button {
+    margin-top: 10px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #ff6b81;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+button:hover {
+    transform: scale(1.1);
+}
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    .photo-container {
+        display: none;
+    }
+}
